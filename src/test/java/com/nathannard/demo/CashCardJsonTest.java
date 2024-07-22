@@ -1,17 +1,16 @@
 package com.nathannard.demo;
 
-import com.nathannard.demo.cashcard.CashCard;
-import org.assertj.core.api.Assert;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.json.JsonContentAssert;
 
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.nathannard.demo.cashcard.CashCard;
 
 @JsonTest
 class CashCardJsonTest {
@@ -31,7 +30,6 @@ class CashCardJsonTest {
         jsonAssert.hasJsonPathNumberValue("@.amount");
         jsonAssert.extractingJsonPathNumberValue("@.amount")
                 .isEqualTo(123.45);
-
 
     }
 
